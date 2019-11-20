@@ -12,7 +12,7 @@
 
 ## How will users interact with your web site?
 
-> Users can look on their stats through a search form.
+> The user will enter their fortnite IGN and click sumbit.
 
 ## What 3rd Party API(s) will you integrate with?
 
