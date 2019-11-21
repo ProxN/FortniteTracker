@@ -1,0 +1,52 @@
+.header {
+    background: rgba($color-primary, .8);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 100px;
+    justify-content: space-between;
+    z-index: 15;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    &__logo {
+        text-decoration: none;
+        color: $color-grey-light-1;
+        font-weight: 300;
+        font-size: 16px;
+        letter-spacing: 1px;
+        line-height: 1.2;
+        transition: color .2s ease-in-out;
+
+        span {
+            font-weight: 700;
+            color: $color-secondary;
+            transition: color .2s ease-in-out;
+        }
+
+        &:hover span {
+            color: $color-grey-light-1;
+        }
+
+        &:hover {
+            color: $color-secondary
+        }
+    }
+
+
+    &__nav {
+        display: flex;
+
+        a:link,
+        a:visited {
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 1.3;
+            color: $color-grey-light-1;
+            font-weight: 700;
+            font-family: $font-display;
+            padding: 0 12px;
+            white-space: nowrap;
+        }
+    }
+
+}

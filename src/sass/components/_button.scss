@@ -1,0 +1,24 @@
+.btn {
+    border: none;
+    background: transparent;
+    text-transform: uppercase;
+    color: $color-grey-light-1;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-family: $font-display;
+    outline: none;
+
+    &__search {
+        transition: all .3s;
+        font-size: 15px;
+        padding: 10px;
+
+
+
+        &:hover {
+            background: rgba($color-secondary, .5);
+        }
+    }
+}
