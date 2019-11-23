@@ -1,0 +1,50 @@
+.userContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 150px 10px 0 10px;
+}
+
+.userHeader {
+    background: rgba($color-primary, .6);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+    }
+
+    &__avatar {
+        margin-right: 30px;
+
+        img {
+            border-radius: 50%;
+            border: 3px solid $color-primary;
+        }
+    }
+
+    &__playerName {
+        font-size: 25px;
+        font-weight: 700;
+        font-family: $font-primary;
+        color: rgba($color-grey-light-1, .9);
+
+    }
+}
+
+
+.statsOverview {
+    margin-bottom: 30px;
+
+    &__heading {
+        font-size: 24px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: $font-primary;
+        line-height: 1.3;
+        color: rgba($color-grey-light-1, .8);
+        font-weight: 700;
+        padding-bottom: 20px;
+    }
+}

@@ -7,13 +7,14 @@
     cursor: pointer;
     font-size: 13px;
     letter-spacing: 1px;
-    font-family: $font-display;
+    font-family: $font-primary;
     outline: none;
 
     &__search {
         transition: all .3s;
-        font-size: 15px;
+        font-size: 14px;
         padding: 10px;
+
 
 
 

@@ -1,0 +1,123 @@
+.playlist {
+
+    padding-bottom: 100px;
+
+    &__card {
+        background: rgba($color-primary, 1);
+
+        height: 300px;
+    }
+
+
+    &__header {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__type {
+        font-size: 15px;
+        font-weight: 700;
+        color: $color-grey-light-1;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        padding: 0 10px;
+    }
+
+    &__matches {
+        position: relative;
+        background-color: rgba(#63cdd8, .7);
+        padding: 10px;
+
+        font-size: 13px;
+        font-weight: 700;
+        font-family: $font-primary;
+
+        span {
+
+            font-weight: 300;
+        }
+
+
+        &::before {
+            content: '';
+            width: 50px;
+            height: 100%;
+            display: block;
+            background: inherit;
+            position: absolute;
+            left: -50px;
+            top: 0;
+            clip-path: polygon(100% 0%, 100% 100%, 54% 40%, 56% 67.5%, 0% 0%);
+        }
+    }
+
+
+    &__body {
+        padding: 25px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__field {
+        width: 45%;
+    }
+
+    &__title {
+        font-size: 11px;
+        letter-spacing: 1px;
+        font-weight: 700;
+        color: rgba($color-grey-light-1, .7);
+        font-family: $font-display;
+
+    }
+
+    &__value {
+        font-size: 13px;
+        font-weight: 700;
+        font-family: $font-display;
+        margin-bottom: 5px;
+    }
+
+    &__bar {
+        height: 4px;
+        background-color: #24273C;
+        position: relative;
+
+        div {
+            background-color: $color-secondary;
+            width: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+        }
+    }
+}
+
+.solo {
+    background-color: #3ac0ce;
+}
+
+.duo {
+    background-color: #ff9621;
+}
+
+.squad {
+    background-color: #9067e2;
+}
+
+.playlist__header.solo .playlist__matches {
+    background-color: rgba(#63cdd8, .7);
+}
+
+.playlist__header.duo .playlist__matches {
+    background-color: rgba(#ffce98, .7);
+}
+
+.playlist__header.squad .playlist__matches {
+    background-color: rgba(#a583e7, .7);
+}
