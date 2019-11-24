@@ -5,7 +5,7 @@
     &__card {
         background: rgba($color-primary, 1);
 
-        height: 300px;
+
     }
 
 
@@ -73,6 +73,7 @@
         color: rgba($color-grey-light-1, .7);
         font-family: $font-display;
 
+
     }
 
     &__value {
@@ -86,6 +87,7 @@
         height: 4px;
         background-color: #24273C;
         position: relative;
+        margin-bottom: 5px;
 
         div {
             background-color: $color-secondary;
@@ -102,7 +104,7 @@
     background-color: #3ac0ce;
 }
 
-.duo {
+.duos {
     background-color: #ff9621;
 }
 
@@ -114,7 +116,7 @@
     background-color: rgba(#63cdd8, .7);
 }
 
-.playlist__header.duo .playlist__matches {
+.playlist__header.duos .playlist__matches {
     background-color: rgba(#ffce98, .7);
 }
 

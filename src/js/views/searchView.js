@@ -1,3 +1,5 @@
+import { sortStats } from './../helper';
+
 const searchInput = document.querySelector('.search__content--input');
 const main = document.querySelector('.main');
 export const getInput = () => searchInput.value;
@@ -7,16 +9,20 @@ export const clearMain = () => {
 };
 
 const renderOverviewStats = el => {
-  const { key, value } = el;
+  const { key } = el;
   let subtitle = '';
-
+  let title = '';
   if (key === 'Wins' || key === 'Score' || key === 'Kills') {
+    title = key;
     subtitle = 'Total';
   } else if (key === 'K/d') {
+    title = 'kills';
     subtitle = 'Per Death';
   } else if (key === 'Win%') {
     subtitle = 'Average';
+    title = 'Win Rate';
   } else {
+    title = 'Matches';
     subtitle = 'Played';
   }
 
@@ -24,7 +30,7 @@ const renderOverviewStats = el => {
         <div class="overviewCard">
             <div>
                 <p class="overviewCard__subtitle">${subtitle}</p>
-                <p class="overviewCard__title">${key}</p>
+                <p class="overviewCard__title">${title}</p>
             </div>
             <div>
                 <p class="overviewCard__value">${el.value}</p>
@@ -37,10 +43,55 @@ const renderOverviewStats = el => {
 };
 
 const createOverviewCard = lifetime => {
-  const lifetimeStats = lifetime.map(el => {
+  const sorted = lifetime.sort((a, b) => {
+    if (a.key > b.key) return -1;
+    if (a.key < b.key) return 1;
+    return 0;
+  });
+
+  const lifetimeStats = sorted.map(el => {
     if (!el.key.startsWith('Top')) return renderOverviewStats(el);
   });
   return lifetimeStats.join('');
+};
+
+const renderStatField = el => {
+  return `
+  <div class="playlist__field">
+    <p class="playlist__title">${el.label}</p>
+    <p class="playlist__value">${el.displayValue}</p>
+    <div class="playlist__bar">
+        <div style="width:${el.percentile}%"></div>
+    </div>
+  </div>
+`;
+};
+
+const createField = el => {
+  const sorted = sortStats(el);
+
+  const playlistStats = sorted.map(el => {
+    return renderStatField(el);
+  });
+
+  return playlistStats.join('');
+};
+
+const renderPlaylistCard = (el, type) => {
+  return `
+  <div class="playlist__card">
+    <div class="playlist__header ${type}">
+        <h4 class="playlist__type">${type}</h4>
+        <p class="playlist__matches">140 <span>matches</span></p>
+    </div>
+    <div class="playlist__body">
+    ${createField(el)}
+    </div>
+   </div> 
+  
+  
+  
+  `;
 };
 
 export const renderStats = data => {
@@ -60,9 +111,15 @@ export const renderStats = data => {
       <h1 class="statsOverview__heading">stats Overview</h1>
       <div class="gridContainer">
       ${createOverviewCard(data.lifeTimeStats)}
-     
       </div>
+    </section>
+    <section class="playlist">
+    <div class="gridContainer">
+    ${renderPlaylistCard(data.stats.p2, 'solo')}
+    ${renderPlaylistCard(data.stats.p10, 'duos')}
+    ${renderPlaylistCard(data.stats.p9, 'squad')}
 
+    </div>
     </section>
   </section>
   
