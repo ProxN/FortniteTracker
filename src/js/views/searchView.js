@@ -1,13 +1,36 @@
 import { sortStats } from './../helper';
-
+import { ControlSearch } from './../app';
 const searchInput = document.querySelector('.search__content--input');
 const main = document.querySelector('.main');
 export const getInput = () => searchInput.value;
 
 export const clearMain = () => {
   main.innerHTML = '';
+  searchInput.value = '';
 };
 
+const backToHome = e => {
+  e.preventDefault();
+  clearMain();
+  renderSearch();
+  const searchForm = document.getElementById('searchForm');
+  searchForm.addEventListener('submit', ControlSearch, true);
+};
+
+const renderSearch = () => {
+  const markup = `<section class="search">
+    <div class="search__title">
+        <h2>CHECK PLAYER RANKS AND STATS</h2>
+    </div>
+    <div class="search__content">
+        <form id="searchForm">
+            <input placeholder="Enter your epic name..." class="search__content--input" type="text">
+            <button id="searchBtn" class="btn btn__search">Search</button>
+        </form>
+    </div>
+  </section>`;
+  document.querySelector('.main').insertAdjacentHTML('beforeend', markup);
+};
 const renderOverviewStats = el => {
   const { key } = el;
   let subtitle = '';
@@ -102,7 +125,11 @@ export const renderStats = data => {
                 src='https://d6d90m6b4vcx.cloudfront.net/prod/master-b5800d5d/react-fortnite/def_ava/def_ava10.png'>
         </div>
         <h2 class="userHeader__playerName">${data.epicUserHandle}</h2>
+        <div class="userHeader__back">
+        <button id="tes" class="btn btn__back">Back to home page</button>
+        </div>
     </div>
+
     </section>
 
     <section class="statsOverview">
@@ -123,4 +150,9 @@ export const renderStats = data => {
   `;
 
   document.querySelector('.main').insertAdjacentHTML('beforeend', markup);
+  const btnBack = document.getElementById('tes');
+  const searchForm = document.getElementById('searchForm');
+
+  btnBack.addEventListener('click', backToHome);
+  searchForm.removeEventListener('submit');
 };

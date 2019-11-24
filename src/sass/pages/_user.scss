@@ -10,9 +10,11 @@
     padding: 10px;
     margin-bottom: 20px;
 
+
     &__inner {
         display: flex;
         align-items: center;
+        position: relative;
     }
 
     &__avatar {
@@ -29,7 +31,12 @@
         font-weight: 700;
         font-family: $font-primary;
         color: rgba($color-grey-light-1, .9);
+    }
 
+    &__back {
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 }
 

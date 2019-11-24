@@ -1,13 +1,11 @@
 import '../sass/main.scss';
 import Search from './models/Search';
 import * as searchView from './views/searchView';
-
 const searchForm = document.getElementById('searchForm');
-const body = document.getElementById('test');
 
 const state = {};
 
-const ControlSearch = async e => {
+export const ControlSearch = async e => {
   e.preventDefault();
   // 1) Get query from views
   const query = searchView.getInput();
@@ -16,19 +14,15 @@ const ControlSearch = async e => {
     // 2) New search object to state
     state.search = new Search(query);
 
-    // 3) Prepare ui for results
-    searchView.clearMain();
-
-    // 4) Get user stats
+    // 3) Get user stats
     await state.search.getStats();
     if (state.search.data.error) {
-      alert('error');
+      return alert('error');
     }
-
+    // 4) Prepare ui for results
+    searchView.clearMain();
     // 5) Render results on UI
     searchView.renderStats(state.search.data);
-    // body.style.height = 'max-content';
-    // document.querySelector('html').style.height = 'max-content';
   }
 };
 

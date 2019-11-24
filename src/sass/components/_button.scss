@@ -15,11 +15,13 @@
         font-size: 14px;
         padding: 10px;
 
-
-
-
         &:hover {
             background: rgba($color-secondary, .5);
         }
+    }
+
+    &__back {
+        background: $color-secondary;
+        padding: 10px;
     }
 }
