@@ -28,7 +28,8 @@ const ControlSearch = async e => {
 
     // 5) Render results on UI
     searchView.renderStats(state.search.data);
-    body.style.height = 'max-content';
+    // body.style.height = 'max-content';
+    // document.querySelector('html').style.height = 'max-content';
   }
 };
 

@@ -28,7 +28,12 @@ body {
     font-weight: 300;
     color: $color-grey-light-1;
     line-height: 1.6;
+    background-image: linear-gradient(to bottom right, rgba($color-primary, .7), rgba($color-primary, .9)), url('https://i.ibb.co/LgXv86q/bg.jpg');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    position: relative;
 
+    background-color: rgba(#0D1227, 1);
 }
 
 ol,
