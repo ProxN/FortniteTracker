@@ -69,7 +69,6 @@ const renderStatField = el => {
 
 const createField = el => {
   const sorted = sortStats(el);
-
   const playlistStats = sorted.map(el => {
     return renderStatField(el);
   });
@@ -82,15 +81,14 @@ const renderPlaylistCard = (el, type) => {
   <div class="playlist__card">
     <div class="playlist__header ${type}">
         <h4 class="playlist__type">${type}</h4>
-        <p class="playlist__matches">140 <span>matches</span></p>
+        <p class="playlist__matches">${
+          el['matches'].displayValue
+        } <span>matches</span></p>
     </div>
     <div class="playlist__body">
     ${createField(el)}
     </div>
    </div> 
-  
-  
-  
   `;
 };
 
@@ -122,7 +120,6 @@ export const renderStats = data => {
     </div>
     </section>
   </section>
-  
   `;
 
   document.querySelector('.main').insertAdjacentHTML('beforeend', markup);

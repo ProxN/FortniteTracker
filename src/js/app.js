@@ -21,7 +21,6 @@ const ControlSearch = async e => {
 
     // 4) Get user stats
     await state.search.getStats();
-    console.log(state.search.data);
     if (state.search.data.error) {
       alert('error');
     }

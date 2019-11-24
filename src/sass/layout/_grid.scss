@@ -2,8 +2,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, 313px);
     grid-gap: 20px;
-}
+    justify-content: center;
 
-// .main {
-//     background-image: linear-gradient(to right, #0C142C, #26353A);
-// }
+}
