@@ -9,11 +9,9 @@ export const ControlSearch = async e => {
   e.preventDefault();
   // 1) Get query from views
   const query = searchView.getInput();
-
   if (query) {
     // 2) New search object to state
     state.search = new Search(query);
-
     // 3) Get user stats
     await state.search.getStats();
     if (state.search.data.error) {

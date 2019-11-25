@@ -1,21 +1,19 @@
 import { sortStats } from './../helper';
 import { ControlSearch } from './../app';
-const searchInput = document.querySelector('.search__content--input');
 const main = document.querySelector('.main');
+const searchInput = document.querySelector('.search__content--input');
+
 export const getInput = () => searchInput.value;
 
 export const clearMain = () => {
   main.innerHTML = '';
-  searchInput.value = '';
 };
 
-const backToHome = e => {
-  e.preventDefault();
-  clearMain();
-  renderSearch();
-  const searchForm = document.getElementById('searchForm');
-  searchForm.addEventListener('submit', ControlSearch, true);
-};
+// const backToHome = e => {
+//   e.preventDefault();
+//   clearMain();
+//   renderSearch();
+// };
 
 const renderSearch = () => {
   const markup = `<section class="search">
@@ -30,6 +28,8 @@ const renderSearch = () => {
     </div>
   </section>`;
   document.querySelector('.main').insertAdjacentHTML('beforeend', markup);
+  const searchForm = document.getElementById('searchForm');
+  searchForm.addEventListener('submit', ControlSearch, true);
 };
 const renderOverviewStats = el => {
   const { key } = el;
