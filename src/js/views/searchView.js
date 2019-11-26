@@ -1,38 +1,16 @@
-import { sortStats } from './../helper';
-import { ControlSearch } from './../app';
-const main = document.querySelector('.main');
-const searchInput = document.querySelector('.search__content--input');
+import { sortStats, sortLifeTimeStats } from './../helper';
+import { elments } from './base';
 
-export const getInput = () => searchInput.value;
+export const getInput = () => elments.searchInput.value;
+
+export const getNavInput = () => elments.navInput.value;
 
 export const clearMain = () => {
-  main.innerHTML = '';
+  elments.main.innerHTML = '';
+  elments.searchInput.value = '';
 };
 
-// const backToHome = e => {
-//   e.preventDefault();
-//   clearMain();
-//   renderSearch();
-// };
-
-const renderSearch = () => {
-  const markup = `<section class="search">
-    <div class="search__title">
-        <h2>CHECK PLAYER RANKS AND STATS</h2>
-    </div>
-    <div class="search__content">
-        <form id="searchForm">
-            <input placeholder="Enter your epic name..." class="search__content--input" type="text">
-            <button id="searchBtn" class="btn btn__search">Search</button>
-        </form>
-    </div>
-  </section>`;
-  document.querySelector('.main').insertAdjacentHTML('beforeend', markup);
-  const searchForm = document.getElementById('searchForm');
-  searchForm.addEventListener('submit', ControlSearch, true);
-};
-const renderOverviewStats = el => {
-  const { key } = el;
+const renderOverviewStats = (key, value) => {
   let subtitle = '';
   let title = '';
   if (key === 'Wins' || key === 'Score' || key === 'Kills') {
@@ -48,7 +26,6 @@ const renderOverviewStats = el => {
     title = 'Matches';
     subtitle = 'Played';
   }
-
   return `
         <div class="overviewCard">
             <div>
@@ -56,26 +33,23 @@ const renderOverviewStats = el => {
                 <p class="overviewCard__title">${title}</p>
             </div>
             <div>
-                <p class="overviewCard__value">${el.value}</p>
+                <p class="overviewCard__value">${value}</p>
             </div>
             <div class="overviewCard__rank">
-                <p>#400</p>
+                <p>#1</p>
             </div>
         </div>
   `;
 };
 
 const createOverviewCard = lifetime => {
-  const sorted = lifetime.sort((a, b) => {
-    if (a.key > b.key) return -1;
-    if (a.key < b.key) return 1;
-    return 0;
+  const sortedArr = sortLifeTimeStats(lifetime);
+
+  const overViewMarkup = Object.keys(sortedArr).map(key => {
+    return renderOverviewStats(key, sortedArr[key]);
   });
 
-  const lifetimeStats = sorted.map(el => {
-    if (!el.key.startsWith('Top')) return renderOverviewStats(el);
-  });
-  return lifetimeStats.join('');
+  return overViewMarkup.join('');
 };
 
 const renderStatField = el => {
@@ -92,15 +66,13 @@ const renderStatField = el => {
 
 const createField = el => {
   const sorted = sortStats(el);
-  const playlistStats = sorted.map(el => {
+  const fieldsMarkup = sorted.map(el => {
     return renderStatField(el);
   });
-
-  return playlistStats.join('');
+  return fieldsMarkup.join('');
 };
 
-const renderPlaylistCard = (el, type) => {
-  return `
+const renderPlaylistCard = (el, type) => `
   <div class="playlist__card">
     <div class="playlist__header ${type}">
         <h4 class="playlist__type">${type}</h4>
@@ -111,9 +83,8 @@ const renderPlaylistCard = (el, type) => {
     <div class="playlist__body">
     ${createField(el)}
     </div>
-   </div> 
-  `;
-};
+   </div>  
+`;
 
 export const renderStats = data => {
   const markup = ` 
@@ -125,13 +96,8 @@ export const renderStats = data => {
                 src='https://d6d90m6b4vcx.cloudfront.net/prod/master-b5800d5d/react-fortnite/def_ava/def_ava10.png'>
         </div>
         <h2 class="userHeader__playerName">${data.epicUserHandle}</h2>
-        <div class="userHeader__back">
-        <button id="tes" class="btn btn__back">Back to home page</button>
-        </div>
     </div>
-
     </section>
-
     <section class="statsOverview">
       <h1 class="statsOverview__heading">stats Overview</h1>
       <div class="gridContainer">
@@ -143,16 +109,9 @@ export const renderStats = data => {
     ${renderPlaylistCard(data.stats.p2, 'solo')}
     ${renderPlaylistCard(data.stats.p10, 'duos')}
     ${renderPlaylistCard(data.stats.p9, 'squad')}
-
     </div>
     </section>
   </section>
   `;
-
-  document.querySelector('.main').insertAdjacentHTML('beforeend', markup);
-  const btnBack = document.getElementById('tes');
-  const searchForm = document.getElementById('searchForm');
-
-  btnBack.addEventListener('click', backToHome);
-  searchForm.removeEventListener('submit');
+  elments.main.insertAdjacentHTML('beforeend', markup);
 };

@@ -16,5 +16,6 @@ export default class Search {
 
     const res = await fetch(url, options);
     this.data = await res.json();
+    console.log(this.data);
   }
 }
