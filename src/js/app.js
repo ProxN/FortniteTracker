@@ -24,7 +24,7 @@ export const ControlSearch = async query => {
       return alert('error');
     }
     // 5) Render results on UI
-    clearLoader(element.body);
+    clearLoader(elments.body);
     searchView.renderStats(state.search.data);
   }
 };
