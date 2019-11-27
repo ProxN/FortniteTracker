@@ -5,6 +5,7 @@
     align-items: center;
     border-radius: 3px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    height: 50px;
 
     div:not(:last-child) {
         padding: 10px;
@@ -43,6 +44,7 @@
 
         p {
             padding-right: 8px;
+            padding-left: 8px;
         }
 
         &::before {
