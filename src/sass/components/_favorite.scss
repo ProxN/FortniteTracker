@@ -1,0 +1,69 @@
+.favorite {
+    width: 100%;
+    background: white;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-top: -4px;
+
+    &__tabs {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #e5e5e5;
+
+        &--link {
+            flex: 1;
+            color: $color-grey-dark-1;
+            font-family: $font-display;
+            font-weight: 700;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        &--link.active {
+            color: rgba($color-grey-light-1, .9);
+            background-color: rgba($color-secondary, .7);
+        }
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 40px;
+        grid-row-gap: 20px;
+        padding: 10px;
+    }
+
+    &__player {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &--name {
+            font-size: 15px;
+            color: #333;
+            font-weight: 700;
+            font-family: $font-display;
+            cursor: pointer;
+        }
+
+        &--icon {
+            display: flex;
+            height: 25px;
+            width: 25px;
+            align-items: center;
+            cursor: pointer;
+
+        }
+
+        &--icon.active svg {
+            fill: $color-secondary;
+        }
+
+        &--action {
+            display: flex;
+        }
+    }
+}

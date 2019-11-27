@@ -1,15 +1,9 @@
 .search {
-
     padding: 150px 10px 0px 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 60px;
-
-    &__content {
-        background: rgba($color-secondary, .5);
-        transition: all .3s ease-in-out;
-    }
 
     &__title {
         padding: 10px;
@@ -31,10 +25,13 @@
         }
     }
 
-    &__content {
+    &__inner {
+        background: rgba($color-secondary, .5);
         padding: 20px 25px;
-        border-radius: 2px;
+        border-radius: 4px;
+    }
 
+    &__content {
         &--input {
             width: 500px;
             padding: 10px;
@@ -60,9 +57,7 @@
                 border: none;
                 outline: none;
             }
-
         }
     }
-
 
 }

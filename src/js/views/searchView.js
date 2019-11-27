@@ -1,13 +1,13 @@
 import { sortStats, sortLifeTimeStats } from './../helper';
-import { elments } from './base';
+import { elements } from './base';
 
-export const getInput = () => elments.searchInput.value;
+export const getInput = () => elements.searchInput.value;
 
-export const getNavInput = () => elments.navInput.value;
+export const getNavInput = () => elements.navInput.value;
 
 export const clearMain = () => {
-  elments.main.innerHTML = '';
-  elments.searchInput.value = '';
+  elements.main.innerHTML = '';
+  elements.searchInput.value = '';
 };
 
 const renderOverviewStats = (key, value) => {
@@ -113,5 +113,5 @@ export const renderStats = data => {
     </section>
   </section>
   `;
-  elments.main.insertAdjacentHTML('beforeend', markup);
+  elements.main.insertAdjacentHTML('beforeend', markup);
 };
