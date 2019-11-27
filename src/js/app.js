@@ -32,6 +32,9 @@ export const ControlSearch = async query => {
     // 5) Render results on UI
     clearLoader(elements.body);
     searchView.renderStats(state.search.data);
+
+    // add player to recent Searches
+    state.favorite.addRecentPlayer(query);
   }
 };
 
@@ -61,6 +64,7 @@ const ControlFavorite = tab => {
 
   // 3) Render results on UI
   const players = state.favorite.favorites[tab];
+
   const favorites = state.favorite.favorites['favorite'];
   favroiteView.renderFavoriteBody(players, tab, favorites);
 };
@@ -98,20 +102,26 @@ window.addEventListener('click', e => {
 
 window.addEventListener('click', e => {
   const iconContainer = e.target.closest('.favorite__player--icon');
-
   if (iconContainer) {
     const player = iconContainer.parentNode.parentNode.children[0];
 
     // Player has not been added to favorite
     if (!state.favorite.isAddedToFavorite(player.innerText)) {
+      // Add favorite player to  the state
       state.favorite.addPlayerToFavorite(player.innerText);
 
+      // Toggle favorite button
       favroiteView.toggleFavoriteBtn(iconContainer, true);
-    } else {
+
       // Player has added to favorite
+    } else {
+      // Remove favorite player from the  state
       state.favorite.removeFavoritePlayer(player.innerText);
 
+      // Toggle favorite button
       favroiteView.toggleFavoriteBtn(iconContainer, false);
+      // Remove Favorite from ui
+      iconContainer.parentNode.parentNode.remove();
     }
   }
 });
@@ -123,4 +133,9 @@ window.addEventListener('load', () => {
 
   // Read LocalStorage
   state.favorite.readLocalStorage();
+});
+
+window.addEventListener('click', e => {
+  const player = e.target.closest('.favorite__player--name');
+  if (player) ControlSearch(player.innerText);
 });
