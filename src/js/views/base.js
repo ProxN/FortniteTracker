@@ -7,6 +7,18 @@ export const elements = {
   body: document.querySelector('body')
 };
 
+export const images = [
+  'https://d6d90m6b4vcx.cloudfront.net/prod/release-2.2-c2f94c86/react-fortnite/def_ava/def_ava1.png',
+  'https://d6d90m6b4vcx.cloudfront.net/prod/release-2.2-c2f94c86/react-fortnite/def_ava/def_ava2.png',
+  'https://d6d90m6b4vcx.cloudfront.net/prod/master-ddb5a76c/react-fortnite/def_ava/def_ava8.png',
+  'https://d6d90m6b4vcx.cloudfront.net/prod/release-2.2-c2f94c86/react-fortnite/def_ava/def_ava5.png',
+  'https://d6d90m6b4vcx.cloudfront.net/prod/release-2.2-c2f94c86/react-fortnite/def_ava/def_ava3.png',
+  'https://d6d90m6b4vcx.cloudfront.net/prod/release-1-6308ae95/react-fortnite/def_ava/def_ava4.png',
+  'https://d6d90m6b4vcx.cloudfront.net/prod/release-2.2-c2f94c86/react-fortnite/def_ava/def_ava9.png',
+  'https://d6d90m6b4vcx.cloudfront.net/prod/release-2.2-c2f94c86/react-fortnite/def_ava/def_ava6.png',
+  'https://d6d90m6b4vcx.cloudfront.net/prod/release-2.2-c2f94c86/react-fortnite/def_ava/def_ava10.png'
+];
+
 export const renderLoader = parent => {
   const loader = `<div class="loader loader--style1" title="0">
     <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

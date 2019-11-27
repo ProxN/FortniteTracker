@@ -1,16 +1,11 @@
 .playlist {
-
     padding-bottom: 100px;
 
     &__card {
         background: rgba($color-primary, 1);
-
-
     }
 
-
     &__header {
-
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -30,7 +25,6 @@
         position: relative;
         background-color: rgba(#63cdd8, .7);
         padding: 10px;
-
         font-size: 13px;
         font-weight: 700;
         font-family: $font-primary;
@@ -39,7 +33,6 @@
 
             font-weight: 300;
         }
-
 
         &::before {
             content: '';
@@ -72,8 +65,6 @@
         font-weight: 700;
         color: rgba($color-grey-light-1, .7);
         font-family: $font-display;
-
-
     }
 
     &__value {

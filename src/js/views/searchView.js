@@ -1,6 +1,5 @@
 import { sortStats, sortLifeTimeStats } from './../helper';
-import { elements } from './base';
-
+import { elements, images } from './base';
 export const getInput = () => elements.searchInput.value;
 
 export const getNavInput = () => elements.navInput.value;
@@ -8,6 +7,10 @@ export const getNavInput = () => elements.navInput.value;
 export const clearMain = () => {
   elements.main.innerHTML = '';
   elements.searchInput.value = '';
+};
+
+const randomImage = () => {
+  return images[Math.floor(Math.random() * images.length)];
 };
 
 const renderOverviewStats = (key, value) => {
@@ -42,16 +45,6 @@ const renderOverviewStats = (key, value) => {
   `;
 };
 
-const createOverviewCard = lifetime => {
-  const sortedArr = sortLifeTimeStats(lifetime);
-
-  const overViewMarkup = Object.keys(sortedArr).map(key => {
-    return renderOverviewStats(key, sortedArr[key]);
-  });
-
-  return overViewMarkup.join('');
-};
-
 const renderStatField = el => {
   return `
   <div class="playlist__field">
@@ -70,6 +63,16 @@ const createField = el => {
     return renderStatField(el);
   });
   return fieldsMarkup.join('');
+};
+
+const createOverviewCard = lifetime => {
+  const sortedArr = sortLifeTimeStats(lifetime);
+
+  const overViewMarkup = Object.keys(sortedArr).map(key => {
+    return renderOverviewStats(key, sortedArr[key]);
+  });
+
+  return overViewMarkup.join('');
 };
 
 const renderPlaylistCard = (el, type) => `
@@ -93,7 +96,7 @@ export const renderStats = data => {
     <div class="userHeader__inner">
         <div class="userHeader__avatar">
             <img
-                src='https://d6d90m6b4vcx.cloudfront.net/prod/master-b5800d5d/react-fortnite/def_ava/def_ava10.png'>
+                src='${randomImage()}'>
         </div>
         <h2 class="userHeader__playerName">${data.epicUserHandle}</h2>
     </div>

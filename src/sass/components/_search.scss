@@ -10,7 +10,7 @@
         margin-bottom: 40px;
 
         h2 {
-            font-family: $font-display;
+            font-family: $font-primary;
             font-size: 45px;
             letter-spacing: 1px;
             font-weight: 700;
@@ -26,12 +26,15 @@
     }
 
     &__inner {
-        background: rgba($color-secondary, .5);
+        background-color: rgba($color-secondary, .5);
         padding: 20px 25px;
         border-radius: 4px;
+        transition: background-color .3s ease-in-out;
     }
 
     &__content {
+        padding-bottom: 50px;
+
         &--input {
             width: 500px;
             padding: 10px;
@@ -60,4 +63,8 @@
         }
     }
 
+}
+
+#searchForm:focus-within .search__inner {
+    background-color: rgba($color-secondary, 1);
 }
