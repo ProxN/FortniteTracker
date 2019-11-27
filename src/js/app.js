@@ -7,10 +7,13 @@ import { renderLoader, clearLoader, elements } from './views/base';
 
 /** Global state of the app
  * - Search Object
+ * - Favorite Object
  */
 const state = {};
 
-// Search Controller
+/* 
+# Search Controller
+*/
 export const ControlSearch = async query => {
   // 1) Check Query
   if (query) {
@@ -43,7 +46,9 @@ elements.searchNav.addEventListener('submit', e => {
   ControlSearch(query);
 });
 
-// Favorite Controller
+/* 
+# Favorite Controller
+*/
 const ControlFavorite = tab => {
   if (!state.favorite) state.favorite = new Favorite();
 
@@ -61,7 +66,7 @@ const ControlFavorite = tab => {
 };
 
 // Show Favorite Container On input Focus
-elements.searchInput.addEventListener('focus', e => {
+elements.searchInput.addEventListener('focus', () => {
   const favoriteContainer = document.querySelector('.favorite');
   if (!favoriteContainer) ControlFavorite('recent');
 });
@@ -75,9 +80,9 @@ window.addEventListener('click', e => {
   }
 });
 
+// Handling Active Tab
 window.addEventListener('click', e => {
   if (e.target.matches('.favorite__tabs--link')) {
-    // Set active tab
     favroiteView.tabSelected(e.target);
     if (e.target.innerText === 'Favorite') {
       ControlFavorite('favorite');

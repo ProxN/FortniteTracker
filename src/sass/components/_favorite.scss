@@ -55,11 +55,6 @@
             width: 25px;
             align-items: center;
             cursor: pointer;
-
-        }
-
-        &--icon.active svg {
-            fill: $color-secondary;
         }
 
         &--action {

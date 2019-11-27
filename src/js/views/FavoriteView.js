@@ -1,4 +1,4 @@
-import { elements, deleteIcon, starIcon, starIcon2 } from './base';
+import { elements, deleteIcon, starOutlineIcon, starIcon } from './base';
 
 export const clearBody = () => {
   document.querySelector('.favorite__body').innerHTML = '';
@@ -8,10 +8,10 @@ export const toggleFavoriteBtn = (target, isFavorite) => {
   if (isFavorite) {
     // target.classList.add('active');
     target.innerHTML = '';
-    target.innerHTML = starIcon2();
+    target.innerHTML = starIcon();
   } else {
     target.innerHTML = '';
-    target.innerHTML = starIcon();
+    target.innerHTML = starOutlineIcon();
   }
 };
 
@@ -27,12 +27,11 @@ export const tabSelected = target => {
 
 const renderIcon = isFavorite => `
     <a class="favorite__player--icon">
-        ${isFavorite ? starIcon2() : starIcon()}
+        ${isFavorite ? starIcon() : starOutlineIcon()}
     </a>
 `;
 
 const renderFavoritePlayer = (player, type, isFavorite) => {
-  console.log(isFavorite);
   const iconMarkup = type === 'popular' ? '' : renderIcon(isFavorite);
   const markup = `
         <div class="favorite__player">
