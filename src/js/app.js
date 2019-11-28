@@ -130,7 +130,6 @@ window.addEventListener('click', e => {
 window.addEventListener('load', () => {
   // Create new Favorite Object
   state.favorite = new Favorite();
-
   // Read LocalStorage
   state.favorite.readLocalStorage();
 });

@@ -37,9 +37,7 @@
     }
 
     &__player {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flexBetween;
 
         &--name {
             font-size: 14px;

@@ -32,12 +32,10 @@
     }
 
     &__rank {
+        @include flexCenter;
         position: relative;
         background: rgba($color-secondary, .3);
         color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         height: 100%;
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
@@ -49,8 +47,6 @@
 
         &::before {
             content: '';
-
-
             width: 50px;
             height: 100%;
             display: block;
@@ -60,13 +56,9 @@
             top: 0;
             clip-path: polygon(100% 0%, 100% 100%, 54% 40%, 56% 67.5%, 0% 0%);
         }
-
     }
 
     &__value {
         font-size: 16px !important;
-
     }
-
-
 }

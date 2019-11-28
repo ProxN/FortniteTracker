@@ -6,9 +6,7 @@
     }
 
     &__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        @include flexBetween;
     }
 
     &__type {
@@ -49,9 +47,8 @@
 
 
     &__body {
+        @include flexBetween;
         padding: 25px;
-        display: flex;
-        justify-content: space-between;
         flex-wrap: wrap;
     }
 
