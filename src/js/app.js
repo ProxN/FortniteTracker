@@ -3,7 +3,7 @@ import Search from './models/Search';
 import Favorite from './models/Favorite.js';
 import Shop from './models/Store';
 import * as searchView from './views/searchView';
-import * as favroiteView from './views/favoriteView';
+import * as favroiteView from './views/FavoriteView';
 import * as shopView from './views/shopView';
 
 import { renderLoader, clearLoader, elements } from './views/base';
