@@ -1,19 +1,23 @@
 import '../sass/main.scss';
 import Search from './models/Search';
 import Favorite from './models/Favorite.js';
+import Shop from './models/Store';
 import * as searchView from './views/searchView';
-import * as favroiteView from './views/FavoriteView';
+import * as favroiteView from './views/favoriteView';
+import * as shopView from './views/shopView';
+
 import { renderLoader, clearLoader, elements } from './views/base';
 
 /** Global state of the app
  * - Search Object
  * - Favorite Object
+ * - Shop Items
  */
 const state = {};
 
-/* 
-# Search Controller
-*/
+/**
+ * - Search Controller
+ */
 export const ControlSearch = async query => {
   // 1) Check Query
   if (query) {
@@ -127,7 +131,7 @@ window.addEventListener('click', e => {
 });
 
 // Resotre Favorite Players on page load
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
   // Create new Favorite Object
   state.favorite = new Favorite();
   // Read LocalStorage
@@ -137,4 +141,30 @@ window.addEventListener('load', () => {
 window.addEventListener('click', e => {
   const player = e.target.closest('.favorite__player--name');
   if (player) ControlSearch(player.innerText);
+});
+
+/**
+ * Shop Controller
+ */
+
+const ControlShop = async () => {
+  // 1) create new Shop Object
+
+  if (!state.shop) state.shop = new Shop();
+
+  // 2) Prepare ui for results
+
+  searchView.clearMain();
+  renderLoader(elements.body);
+
+  // 3 ) get Shop Items
+  await state.shop.getShopItems();
+
+  // 4) render Results on ui
+  clearLoader(elements.body);
+  shopView.renderShop(state.shop.data);
+};
+
+document.getElementById('shop').addEventListener('click', e => {
+  ControlShop();
 });

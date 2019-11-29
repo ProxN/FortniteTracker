@@ -1,0 +1,91 @@
+.shop-item {
+    background-color: rgba(#6D7071, .7);
+    border: 2px solid #6D7071;
+    position: relative;
+    border-radius: 3px;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    &__price {
+
+        @include flexBetween;
+        position: absolute;
+        top: 0;
+        background: #fafafa;
+        padding: 10px 15px;
+        border-radius: 3px;
+        transform: translateX(-50%);
+        margin-top: -10px;
+
+        &--img {
+            width: 15px;
+            height: auto;
+        }
+
+        span {
+            font-size: 13px;
+            padding-left: 5px;
+            font-weight: 700;
+            color: $color-grey-light-1;
+            letter-spacing: 1px;
+
+        }
+    }
+
+    &__name {
+        position: absolute;
+        bottom: 0;
+        background: rgba(0, 0, 0, .7);
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+
+        p {
+            font-size: 16px;
+            font-weight: 700;
+            font-family: $font-primary;
+            color: $color-grey-light-1;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+
+.shop-item.uncommon {
+    background-color: rgba(#2ecc71, .7);
+    border: 2px solid #2ecc71;
+}
+
+.shop-item.uncommon .shop-item__price {
+    background-color: #2ecc71;
+}
+
+.shop-item.rare {
+    background-color: rgba(#3498db, .7);
+    border: 2px solid #3498db;
+}
+
+.shop-item.rare .shop-item__price {
+    background-color: #3498db;
+}
+
+.shop-item.epic {
+    background-color: rgba(#9b59b6, .7);
+    border: 2px solid #9b59b6;
+}
+
+.shop-item.epic .shop-item__price {
+    background-color: #9b59b6;
+}
+
+.shop-item.legendary {
+    background-color: rgba(#e67e22, .7);
+    border: 2px solid #e67e22;
+}
+
+.shop-item.legendary .shop-item__price {
+    background-color: #e67e22;
+}

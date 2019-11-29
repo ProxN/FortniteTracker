@@ -36,6 +36,7 @@
     &__nav {
         display: flex;
 
+        a,
         a:link,
         a:visited {
             text-decoration: none;
@@ -46,6 +47,7 @@
             font-family: $font-display;
             padding: 0 12px;
             white-space: nowrap;
+            cursor: pointer;
         }
     }
 
