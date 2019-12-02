@@ -17,6 +17,7 @@
 ## What 3rd Party API(s) will you integrate with?
 
 - https://fortnitetracker.com/site-api
+- https://fnbr.co/api/docs
 
 ## Tech Stack
 
