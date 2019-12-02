@@ -89,6 +89,16 @@ const renderPlaylistCard = (el, type) => `
    </div>  
 `;
 
+export const renderErrorMessage = () => {
+  const markup = `
+  <div class="error">
+    <h1>Player has not been found</h1>
+    <h2>Please check your player name and search again.</h2>
+  </div>
+  `;
+  elements.main.insertAdjacentHTML('beforeend', markup);
+};
+
 export const renderStats = data => {
   const markup = ` 
   <section class="userContainer"> 

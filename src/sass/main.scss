@@ -1,7 +1,7 @@
 @import "abstracts/variables";
 @import "abstracts/mixin";
 
-
+@import "base/base";
 @import "base/reset";
 
 @import "components/search";
@@ -12,6 +12,7 @@
 @import "components/favorite";
 @import "components/shop-items";
 @import "components/shop-item";
+@import "components/error";
 
 
 @import "layout/header";

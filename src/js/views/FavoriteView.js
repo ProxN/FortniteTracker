@@ -6,7 +6,6 @@ export const clearBody = () => {
 
 export const toggleFavoriteBtn = (target, isFavorite) => {
   if (isFavorite) {
-    // target.classList.add('active');
     target.innerHTML = '';
     target.innerHTML = starIcon();
   } else {
@@ -15,7 +14,7 @@ export const toggleFavoriteBtn = (target, isFavorite) => {
   }
 };
 
-export const tabSelected = target => {
+export const setActiveTab = target => {
   const resultsArr = Array.from(
     document.querySelectorAll('.favorite__tabs--link')
   );

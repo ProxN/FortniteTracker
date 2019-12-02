@@ -1,4 +1,11 @@
-import { popularPlayers } from './../config';
+const popularPlayers = [
+  'Ninja',
+  'Tfue',
+  'CouRageJD',
+  'Dark',
+  'Nick Eh 30',
+  'LiquidChap'
+];
 class Favorite {
   constructor() {
     this.favorites = {

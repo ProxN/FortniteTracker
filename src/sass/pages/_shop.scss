@@ -34,7 +34,7 @@
     }
 
     &__itemsBox {
-        background-color: $color-primary;
+        background-color: rgba($color-primary-dark, .8);
         border-radius: 10px;
         padding: 25px;
         position: relative;

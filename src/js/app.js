@@ -24,16 +24,17 @@ export const ControlSearch = async query => {
     // 2) New search object to state
     state.search = new Search(query);
 
-    // 3) Prepare ui for results
+    // 3) Render Loader
     searchView.clearMain();
-
     renderLoader(elements.body);
     // 4) Get user stats
     await state.search.getStats();
     if (state.search.data.error) {
-      return alert('error');
+      clearLoader(elements.body);
+      return searchView.renderErrorMessage();
     }
     // 5) Render results on UI
+
     clearLoader(elements.body);
     searchView.renderStats(state.search.data);
 
@@ -91,7 +92,7 @@ window.addEventListener('click', e => {
 // Handling Active Tab
 window.addEventListener('click', e => {
   if (e.target.matches('.favorite__tabs--link')) {
-    favroiteView.tabSelected(e.target);
+    favroiteView.setActiveTab(e.target);
     if (e.target.innerText === 'Favorite') {
       ControlFavorite('favorite');
     }

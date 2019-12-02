@@ -1,0 +1,20 @@
+.error {
+    padding: 150px 10px 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+        font-size: 50px;
+        font-weight: 700;
+        font-family: $font-display;
+    }
+
+    h2 {
+        font-size: 25px;
+        font-weight: 500;
+        font-family: $font-display;
+    }
+
+}
