@@ -8,14 +8,16 @@ export default class Search {
 
   async getStats() {
     const url = `${proxy}${baseUrl}profile/pc/${this.epicName}`;
+
     const options = {
       method: 'GET',
       headers: {
-        'TRN-Api-Key': key
-      }
+        'TRN-Api-Key': key,
+      },
     };
 
     const res = await fetch(url, options);
+    console.log(res);
     this.data = await res.json();
   }
 }
